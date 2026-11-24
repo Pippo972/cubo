@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "it.enjoycube.scanner"
-        minSdk = 24          // funziona su Android 7 e successivi, quindi anche Android 9
+        minSdk = 23          // funziona su Android 7 e successivi, quindi anche Android 9
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
