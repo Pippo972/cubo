@@ -2,14 +2,12 @@
 <resources>
     <style name="Theme.EnjoyCube" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/enjoy_blue</item>
-        <item name="colorPrimaryVariant">@color/enjoy_blue_dark</item>
-        <item name="colorSecondary">@color/enjoy_blue</item>
-        <item name="android:statusBarColor">@color/enjoy_blue</item>
+        <item name="colorPrimaryVariant">@color/nova_dark</item>
+        <item name="colorSecondary">@color/nova_accent</item>
+        <item name="android:statusBarColor">@color/nova_dark</item>
         <item name="android:windowBackground">@color/enjoy_bg</item>
     </style>
     <style name="Theme.EnjoyCube.Splash">
-        <item name="android:windowBackground">@android:color/white</item>
-        <item name="android:statusBarColor">@android:color/white</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@drawable/bg_nova</item>
     </style>
 </resources>

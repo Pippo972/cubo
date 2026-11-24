@@ -1,6 +1,8 @@
-# Enjoy Cube – Scanner smartphone (Android)
+# NOVA – Scanner smartphone (Android)
 
-App per tablet Android 9+: logo → 2 pagine di presentazione → START →
+*Nuova Opportunità per Vecchi Apparecchi*
+
+App per tablet Android 6.0+: logo → 2 pagine di presentazione → START →
 scansione via cavo USB di uno smartphone → report PDF.
 
 ## Compilare con Android Studio

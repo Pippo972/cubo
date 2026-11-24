@@ -8,15 +8,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        android:background="@color/enjoy_blue">
+        android:background="@drawable/bg_nova">
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="24dp"
             android:adjustViewBounds="true"
-            android:contentDescription="Enjoy Cube"
-            android:src="@drawable/logo_white" />
+            android:contentDescription="NOVA"
+            android:src="@drawable/nova_wordmark" />
     </FrameLayout>
 
     <ScrollView

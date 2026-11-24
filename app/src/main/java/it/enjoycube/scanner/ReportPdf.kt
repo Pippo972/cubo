@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.LinearGradient
 import android.graphics.Paint
+import android.graphics.Shader
 import android.graphics.RectF
 import android.graphics.Typeface
 import android.graphics.pdf.PdfDocument
@@ -23,7 +25,7 @@ object ReportPdf {
 
     fun create(ctx: Context, r: ScanResult): File {
         val doc = PdfDocument()
-        val logo = BitmapFactory.decodeResource(ctx.resources, R.drawable.logo_white)
+        val logo = BitmapFactory.decodeResource(ctx.resources, R.drawable.nova_wordmark)
         val dateFmt = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ITALY)
         val reportId = SimpleDateFormat("yyyyMMdd-HHmmss", Locale.ITALY).format(r.date)
 
@@ -34,6 +36,9 @@ object ReportPdf {
         val small = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.GRAY; textSize = 8f }
         val line = Paint().apply { color = Color.rgb(225, 228, 235); strokeWidth = 0.7f }
         val fill = Paint().apply { color = BLUE }
+        val band = Paint().apply {
+            shader = LinearGradient(0f, 0f, W.toFloat(), 80f, Color.rgb(8, 18, 64), BLUE, Shader.TileMode.CLAMP)
+        }
 
         var pageNo = 0
         lateinit var page: PdfDocument.Page
@@ -42,7 +47,7 @@ object ReportPdf {
 
         fun footer() {
             c.drawLine(M, H - 40f, W - M, H - 40f, line)
-            c.drawText("Enjoy Cube · Valuta. Rigenera. Rivendi.  —  Report n. $reportId", M, H - 28f, small)
+            c.drawText("NOVA · Nuova Opportunità per Vecchi Apparecchi  —  Report n. $reportId", M, H - 28f, small)
             c.drawText("Pagina $pageNo", W - M - 35f, H - 28f, small)
         }
 
@@ -51,10 +56,10 @@ object ReportPdf {
             pageNo++
             page = doc.startPage(PdfDocument.PageInfo.Builder(W, H, pageNo).create())
             c = page.canvas
-            c.drawRect(0f, 0f, W.toFloat(), 80f, fill)
-            val lh = 40f
+            c.drawRect(0f, 0f, W.toFloat(), 80f, band)
+            val lh = 30f
             val lw = logo.width * lh / logo.height
-            c.drawBitmap(logo, null, RectF(M, 20f, M + lw, 20f + lh), null)
+            c.drawBitmap(logo, null, RectF(M, 25f, M + lw, 25f + lh), null)
             c.drawText("Report di analisi dispositivo", W - M - white.measureText("Report di analisi dispositivo"), 46f, white)
             y = 110f
         }
