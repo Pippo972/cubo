@@ -52,9 +52,9 @@ object ReportPdf {
             page = doc.startPage(PdfDocument.PageInfo.Builder(W, H, pageNo).create())
             c = page.canvas
             c.drawRect(0f, 0f, W.toFloat(), 80f, fill)
-            val lh = 46f
+            val lh = 40f
             val lw = logo.width * lh / logo.height
-            c.drawBitmap(logo, null, RectF(M, 17f, M + lw, 17f + lh), null)
+            c.drawBitmap(logo, null, RectF(M, 20f, M + lw, 20f + lh), null)
             c.drawText("Report di analisi dispositivo", W - M - white.measureText("Report di analisi dispositivo"), 46f, white)
             y = 110f
         }

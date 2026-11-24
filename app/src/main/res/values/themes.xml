@@ -7,7 +7,9 @@
         <item name="android:statusBarColor">@color/enjoy_blue</item>
         <item name="android:windowBackground">@color/enjoy_bg</item>
     </style>
-    <style name="Theme.EnjoyCube.Blue">
-        <item name="android:windowBackground">@color/enjoy_blue</item>
+    <style name="Theme.EnjoyCube.Splash">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

@@ -2,13 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/enjoy_blue">
+    android:background="@android:color/white">
 
     <ImageView
-        android:layout_width="360dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:contentDescription="Enjoy Cube"
-        android:src="@drawable/logo_white" />
+        android:contentDescription="Enjoy"
+        android:src="@drawable/logo_blue" />
 </FrameLayout>

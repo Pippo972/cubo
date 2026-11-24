@@ -1,19 +1,26 @@
 # Enjoy Cube – Scanner smartphone (Android)
 
-App per tablet Android 9+: splash con logo → 2 pagine di presentazione → START →
+App per tablet Android 9+: logo → 2 pagine di presentazione → START →
 scansione via cavo USB di uno smartphone → report PDF.
 
-## Ottenere l'APK con GitHub (gratis, nessun programma da installare)
-1. Crea un account su https://github.com e un nuovo repository (es. "enjoycube-scanner").
-2. Nel repository: "Add file" › "Upload files" e trascina TUTTO il contenuto di questa
-   cartella (compresa la cartella nascosta `.github`). Premi "Commit changes".
-   Suggerimento: se la cartella `.github` non viene caricata trascinando, crea il file a mano con
-   "Add file › Create new file", nome `.github/workflows/build-apk.yml`, incollando il contenuto.
-3. Apri la scheda "Actions": parte "Compila APK" (circa 5 minuti).
-4. A compilazione finita (spunta verde) apri l'esecuzione e scarica "EnjoyCube-Scanner-APK"
-   in fondo alla pagina: è uno ZIP che contiene `EnjoyCube-Scanner.apk`.
+## Compilare con Android Studio
+Serve Android Studio **Koala (2024.1)** o più recente.
 
-In alternativa: apri la cartella con Android Studio e usa Build › Build APK(s).
+1. Estrai lo ZIP in una cartella (es. `C:\Progetti\EnjoyCubeScanner`).
+2. Android Studio › **File › Open** › seleziona la cartella `EnjoyCubeScanner` › OK.
+   Se chiede "Trust project", rispondi **Trust**.
+3. Attendi la sincronizzazione Gradle (la prima volta scarica i componenti: qualche minuto).
+   Se propone di installare l'SDK Android 34, accetta.
+4. Menu **Build › Build App Bundle(s) / APK(s) › Build APK(s)**.
+5. A fine compilazione clicca **locate** nel messaggio in basso a destra:
+   l'APK è in `app/build/outputs/apk/debug/app-debug.apk`.
+
+Puoi anche collegare il tablet al PC (con il Debug USB attivo sul tablet) e premere
+il pulsante verde ▶ **Run** per installarla direttamente.
+
+### APK "release" firmato (facoltativo)
+Menu **Build › Generate Signed App Bundle / APK › APK**, crea una nuova keystore
+(conservala: serve per tutti gli aggiornamenti futuri), scegli **release**.
 
 ## Installazione sul tablet
 Copia l'APK sul tablet, aprilo e consenti "Installa app sconosciute" quando richiesto.
@@ -33,3 +40,8 @@ Produttore, modello, numero di serie, versione Android e patch di sicurezza, sta
 batteria (livello, stato, salute, tensione, temperatura, tecnologia), RAM, memoria interna
 (totale/usata/libera), risoluzione schermo, stato SIM e operatore.
 Tutto in sola lettura: nessun dato personale viene letto o modificato.
+
+## Struttura
+- `app/src/main/java/it/enjoycube/scanner/` – schermate, analisi dati, report PDF
+- `app/src/main/java/it/enjoycube/scanner/adb/` – comunicazione ADB via USB
+- `app/src/main/res/drawable-nodpi/` – logo e pagine del PDF
